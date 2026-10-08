@@ -155,6 +155,11 @@ nav {
   font-size: 35px;
 }
 
+.menu-btn i,
+#menuIcon {
+  font-size: 20px; 
+}
+
 .menu-btn.open {
   color: #fff;
   left: 220px;
