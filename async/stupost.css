@@ -1,0 +1,160 @@
+
+.main.studfull-page-mode {
+  display: block;
+}
+
+.main.studfull-page-mode .topbar,
+.main.studfull-page-mode .hero,
+.main.studfull-page-mode .stats,
+.main.studfull-page-mode .posts-panel,
+.main.studfull-page-mode .comments-panel {
+  display: none !important;
+}
+
+
+.main.studfull-page-mode .content-grid {
+  display: block;
+  grid-template-columns: 1fr;
+}
+
+.main.studfull-page-mode #students {
+  min-height: calc(100vh - 60px);
+  width: 100%;
+}
+
+.main.studfull-page-mode #students .student-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+
+
+/* ================ */
+/* --- Full Screen Mode for Posts Section --- */
+.main.postfull-page-mode .topbar,
+.main.postfull-page-mode .hero,
+.main.postfull-page-mode .stats,
+.main.postfull-page-mode #students,
+.main.postfull-page-mode .comments-panel {
+  display: none !important;
+}
+
+.main.postfull-page-mode .content-grid {
+  display: block;
+}
+
+.main.postfull-page-mode .posts-panel {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+}
+
+/* Flex layout ONLY when in Post Full-Page Mode */
+.main.postfull-page-mode .post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.main.postfull-page-mode .post-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Hide View Comments button by default (Dashboard view) */
+.view-comments-btn {
+  display: none;
+  width: 100%;
+  margin-top: 12px;
+  border: 0;
+  background: #f7f7ff;
+  color: var(--primary-dark);
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.view-comments-btn:hover {
+  background: var(--soft);
+}
+
+/* Show View Comments button ONLY when in Post Full-Page Mode */
+.main.postfull-page-mode .view-comments-btn {
+  display: block;
+}
+
+
+/* Modal Overlay Background */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 1000;
+}
+
+/* Modal Open State */
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal Dialog Box */
+.modal-card {
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0);
+}
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.modal-close:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.modal-card .comments-list {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 60vh;
+}

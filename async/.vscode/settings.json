@@ -1,0 +1,6 @@
+{
+  "editor.fontSize": 22, // Set the editor font size
+  "terminal.integrated.fontSize": 18, // Set the terminal font size
+  "workbench.colorTheme": "Visual Studio Light - C++",
+  "liveServer.settings.port": 5501 // Set the theme (you can choose any installed theme)
+}

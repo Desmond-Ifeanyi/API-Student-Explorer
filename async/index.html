@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./stupost.css">
+  </head>
+  <body>
+    <div class="app-shell">
+
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">SE</div>
+          <div>
+            <strong>Student Explorer</strong>
+            <span>Async JS Lab</span>
+          </div>
+        </div>
+
+        <nav>
+          <a class="nav-item " href="#" data-target="dashboard"><span>▦</span> Dashboard</a>
+          <a class="nav-item" id="studentbtn" href="" data-target="students"><span>♙</span> Students</a>
+          <a class="nav-item" id="postbtn" href="#posts"><span>☷</span> Posts</a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="mini-dot"></span>
+          <div>
+            <strong>Learning mode</strong>
+            <p>Promises → async/await</p>
+          </div>
+        </div>
+      </aside>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+  <i class="ri-menu-line" id="menuIcon"></i>
+</button>
+
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">JAVASCRIPT • ASYNCHRONOUS DATA</p>
+            <h1>Student Dashboard</h1>
+          </div>
+          <div class="status-pill"><span></span> API Connected</div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <p class="hero-kicker">JSONPlaceholder Explorer</p>
+            <h2>Explore students, posts and comments.</h2>
+            <p>
+              Build the dashboard first with <code>.then()</code>, then refactor
+              the same application to <code>async/await</code>.
+            </p>
+          </div>
+          <div class="hero-icon">⚡</div>
+        </section>
+
+        <section class="stats">
+
+          <article class="stat-card">
+            <span>Students</span><strong id="studentCount">—</strong
+            ><small>Loaded from API</small>
+          </article>
+
+          <article class="stat-card">
+            <span>Posts</span><strong id="postCount">—</strong
+            ><small>Selected student</small>
+          </article>
+          <article class="stat-card">
+            <span>Comments</span><strong id="commentCount">—</strong
+            ><small>Selected post</small>
+          </article>
+        </section>
+
+        <div class="content-grid">
+
+          <section class="panel" id="students">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">STUDENTS</p>
+                <h3>Choose a student</h3>
+              </div>
+              <input
+                id="searchInput"
+                class="search"
+                type="search"
+                placeholder="Search students..."
+              />
+            </div>
+            <div id="status" class="status-message">Loading students...</div>
+            <div id="users" class="student-grid"></div>
+          </section>
+
+          <section class="panel posts-panel" id="posts">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">POSTS</p>
+                <h3 id="postsTitle">Select a student</h3>
+              </div>
+            </div>
+            <div id="postsList" class="post-list">
+              <div class="empty-state">
+                <div>☷</div>
+                <strong>No student selected</strong>
+                <p>Choose a student to load their posts.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel comments-panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">COMMENTS</p>
+              <h3 id="commentsTitle">Select a post</h3>
+            </div>
+          </div>
+          <div id="commentsList" class="comments-list">
+            <div class="empty-state">
+              <div>💬</div>
+              <strong>No post selected</strong>
+              <p>Choose a post to load its comments.</p>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          Student Explorer • Built for learning JavaScript Promises
+        </footer>
+      </main>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+      <!-- Comments Modal -->
+      <div id="commentsModal" class="modal-overlay">
+        <div class="modal-card">
+          <div class="modal-head">
+            <div>
+              <p class="eyebrow">COMMENTS</p>
+              <h3 id="modalCommentsTitle">Post Comments</h3>
+            </div>
+            <button id="closeModalBtn" class="modal-close" aria-label="Close modal">&times;</button>
+          </div>
+          <div id="modalCommentsList" class="comments-list"></div>
+        </div>
+      </div>
+
+    <script src="./app.js"></script>
+    <script defer src="./async.js"></script>
+
+
+  </body>
+</html>
